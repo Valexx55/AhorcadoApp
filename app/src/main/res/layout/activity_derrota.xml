@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_derrota"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="antonio.femxa.ahorcadoproject.DerrotaActivity"
+    >
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/imagenDerrota"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+
+        />
+
+    <Button
+        android:text="Inicio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/boton_derrota_inicio"
+        android:layout_alignParentBottom="true"
+        android:textAlignment="center" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/text_palabra_oculta"
+        android:layout_above="@+id/boton_derrota_inicio"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textAppearance="@android:style/TextAppearance"
+        android:textAlignment="center"
+        android:textSize="18sp" />
+
+    <TextView
+        android:text="La palabra era:"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:id="@+id/text_palabra"
+        android:layout_above="@+id/text_palabra_oculta"
+        android:layout_centerHorizontal="true"
+        android:textAppearance="@android:style/TextAppearance"
+        android:fontFamily="sans-serif"
+        android:textSize="24sp"
+        android:textAlignment="center" />
+
+</RelativeLayout>

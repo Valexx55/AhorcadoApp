@@ -1,0 +1,98 @@
+<resources>
+    <string name="app_name">Ahorcado</string>
+	<string name="title_activity_tablero">TableroActivity</string>
+    <string name="creditos">
+        \n
+        EQUIPO FEMXA\n
+        \n
+        Isabel Martin Alonso\n
+	Contact: isabelmartinalonso2@gmail.com\n
+	GitHub: github.com/isamaralo\n
+	From: Avila, Spain\n
+\n
+	Antonio Lopez Belinchon\n
+	Contact: antonio3650@gmail.com\n
+	GitHub: github.com/antoniolb92\n
+	From: Madrid, Spain\n
+\n
+	Susana Sanchez Montero\n
+	Contact: susanasanchez@auxiliamadrid.org\n
+	GitHub: github.com/Susanasanch\n
+	From: Madrid, Spain\n
+\n
+	Nira Maria Bethencourt Hernandez\n
+	Contact: nirabethencourt@gmail.com\n
+	GitHub: github.com/niraBH\n
+	From: Tenerife, Spain\n
+\n
+	Carlota Elena Sanchez Sansegundo\n
+	Contact: carlotasanchezsansegundo@gmail.com\n
+	GitHub: github.com/css94\n
+	From: Madrid, Spain\n
+	\n
+	Cristian Hernandez Del Caso\n
+	Contact: cristianhernandezdelcaso@hotmail.com\n
+	GitHub: github.com/Cristian8\n
+	From: Avila, Spain\n
+	\n
+	Dante Jeanpier Olivares Oruna\n
+	Contact: dante_cancer27@hotmail.com\n
+	GitHub: github.com/dante321\n
+	From: Lima, Peru\n
+	\n
+	Manuel Santiago Risquez\n
+	Contact: manudj_2006@hotmail.com\n
+	GitHub: github.com/manu160427\n
+	From: Madrid, Spain\n
+	\n
+	Javier Moreno\n
+	Contact: morenopereda12@gmail.com\n
+	GitHub: github.com/jmoremore\n
+	From: Albacete, Spain	\n
+	\n
+	Iulian Constantin Anghel \n
+	Contact: iulian.anghel19@gmail.com\n
+	GitHub: github.com/iulianang\n
+	From: Madrid, Spain \n
+	\n
+	Zaineb Mazouz\n
+	Contact: z.m.malak@hotmail.com\n
+	GitHub: github.com/zaineb88\n
+	From: Rabat, Morocco\n
+	\n
+	Cristina Calvo Sanz\n
+	Contact: c.calvosanz@gmail.com\n
+	GitHub: github.com/crikycs\n
+	From: Madrid, Spain\n
+	\n
+	Alvaro Esteve Atance\n
+	Contact: alvarodava@gmail.com\n
+	GitHub: github.com/SteveR98 \n
+	From: Madrid, Spain\n
+	\n
+	Diego Bladimir Duque Castillo\n
+	Contact: diego.duque90@gmail.com\n
+	GitHub: github.com/dbcd\n
+	From: Madrid, Spain	\n
+\n
+	Daniel Garcea-Nieto Sanchez-Guijaldo\n
+	Contact: daniel_garciasanchez@hotmail.com\n
+	GitHub: github.com/danielparla\n
+	From: Madrid, Spain\n
+	\n
+	Rodrigo Muñoz Sanchez\n
+	Contact: rodrickms@gmail.com\n
+	GitHub: github.com/rodrick88\n
+	From: Madrid, Spain\n
+	\n
+	Aitor Garcia Ruiz\n
+	Contact: aitor.garcia.ruiz@hotmail.com\n
+	GitHub: github.com/AitorPCGR\n
+	From: Madrid, Spain\n
+	\n
+	Alvaro Garcia Fernandez\n
+	Contact: alvgarfer@gmail.com\n
+	GitHub: github.com/alvgarfer\n
+	From: Madrid, Spain\n
+    </string>
+</resources>

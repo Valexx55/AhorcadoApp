@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_categoria"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/fondo_juego_3"
+    tools:context="antonio.femxa.appfinal.TableroActivity">
+        <ImageButton
+        android:layout_gravity="end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnImagen"
+        android:src="@drawable/ic_volume_up"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="170dp"
+        android:id="@+id/imagenes_ahorcado"
+        android:paddingTop="10dp"
+        />
+
+    <TableLayout
+        android:id="@+id/activity_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+        android:paddingTop="@dimen/activity_vertical_margin">
+
+        <TextView
+            android:id="@+id/textviewcategoria"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/boton_victoria_inicio"
+            android:layout_alignLeft="@+id/text_palabra_victoria"
+            android:layout_alignStart="@+id/text_palabra_victoria"
+
+            android:fontFamily="monospace"
+            android:text="TextView"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textAppearance="@android:style/TextAppearance"
+            android:textColor="@android:color/holo_green_dark"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TableRow
+            android:id="@+id/lugar_inflado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="5dp"
+            android:orientation="horizontal"></TableRow>
+
+        <TableRow
+            android:id="@+id/lugar_inflado2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:layout_margin="5dp"
+            android:orientation="horizontal"></TableRow>
+
+        <TableRow
+            android:id="@+id/lugar_inflado3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:layout_margin="5dp"
+            android:orientation="horizontal"></TableRow>
+
+        <TableRow
+            android:id="@+id/lugar_inflado4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:layout_margin="5dp"
+            android:orientation="horizontal"></TableRow>
+
+
+    </TableLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:layout_marginBottom="5dp"
+        android:layout_gravity="center|bottom"
+        >
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_weight="1">
+
+            <Button
+                android:onClick="escribirNumero"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="A"
+                android:tag="0"
+                />
+
+            <Button
+                android:onClick="escribirNumero"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="B"
+                android:tag="1"
+                />
+
+            <Button
+                android:onClick="escribirNumero"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="C"
+                android:tag="2"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="escribirNumero"
+                android:tag="3"
+                android:text="D" />
+
+            <Button
+                android:onClick="escribirNumero"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="E"
+                android:tag="4"/>
+
+            <Button
+                android:onClick="escribirNumero"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="F"
+                android:tag="5"/>
+
+            <Button
+                android:onClick="escribirNumero"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="G"
+                android:tag="6"/>
+
+        </TableRow>
+
+        <TableRow
+            android:gravity="center"
+            android:layout_weight="1">
+            <Button
+                android:onClick="escribirNumero"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="H"
+                android:tag="7"/>
+
+            <Button
+                android:onClick="escribirNumero"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="I"
+                android:tag="8"/>
+
+            <Button
+                android:onClick="escribirNumero"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="J"
+                android:tag="9"/>
+
+            <Button
+                android:onClick="escribirNumero"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="K"
+                android:tag="10"/>
+            <Button
+                android:onClick="escribirNumero"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="L"
+                android:tag="11"/>
+
+            <Button
+                android:onClick="escribirNumero"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="M"
+                android:tag="12"/>
+
+            <Button
+                android:onClick="escribirNumero"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="N"
+                android:tag="13"/>
+        </TableRow>
+
+        <TableRow
+            android:gravity="center"
+            android:layout_weight="1">
+
+            <Button
+                android:onClick="escribirNumero"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Ñ"
+                android:tag="14"/>
+
+            <Button
+                android:onClick="escribirNumero"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="O"
+                android:tag="15"/>
+
+            <Button
+                android:onClick="escribirNumero"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="P"
+                android:tag="16"/>
+
+            <Button
+                android:onClick="escribirNumero"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Q"
+                android:tag="17"/>
+            <Button
+                android:onClick="escribirNumero"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="R"
+                android:tag="18"/>
+
+            <Button
+                android:onClick="escribirNumero"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="S"
+                android:tag="19"/>
+
+            <Button
+                android:onClick="escribirNumero"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="T"
+                android:tag="20"/>
+        </TableRow>
+
+        <TableRow
+            android:gravity="center"
+            android:layout_weight="1">
+
+            <Button
+                android:onClick="escribirNumero"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="U"
+                android:tag="21"/>
+
+            <Button
+                android:onClick="escribirNumero"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="V"
+                android:tag="22"/>
+
+            <Button
+                android:onClick="escribirNumero"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="W"
+                android:tag="23"/>
+
+            <Button
+                android:onClick="escribirNumero"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="X"
+                android:tag="24"/>
+            <Button
+                android:onClick="escribirNumero"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Y"
+                android:tag="25"/>
+
+            <Button
+                android:onClick="escribirNumero"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Z"
+                android:tag="26"/>
+        </TableRow>
+
+
+
+    </TableLayout>
+    </LinearLayout>
+
+
+
+</LinearLayout>
