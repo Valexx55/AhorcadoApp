@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/inicialFragment">
+
+    <fragment
+        android:id="@+id/victoriaFragment"
+        android:name="antonio.femxa.appfinal.ui.screens.victoria.VictoriaFragment"
+        android:label="fragment_victoria"
+        tools:layout="@layout/fragment_victoria" />
+    <fragment
+        android:id="@+id/categoriaFragment"
+        android:name="antonio.femxa.appfinal.ui.screens.categoria.CategoriaFragment"
+        android:label="fragment_categoria"
+        tools:layout="@layout/fragment_categoria" />
+    <fragment
+        android:id="@+id/creditosFragment"
+        android:name="antonio.femxa.appfinal.ui.screens.creditos.CreditosFragment"
+        android:label="fragment_creditos"
+        tools:layout="@layout/fragment_creditos" />
+    <fragment
+        android:id="@+id/derrotaFragment"
+        android:name="antonio.femxa.appfinal.ui.screens.derrota.DerrotaFragment"
+        android:label="fragment_derrota"
+        tools:layout="@layout/fragment_derrota" />
+    <fragment
+        android:id="@+id/tableroFragment"
+        android:name="antonio.femxa.appfinal.ui.screens.tablero.TableroFragment"
+        android:label="fragment_tablero"
+        tools:layout="@layout/fragment_tablero" />
+    <fragment
+        android:id="@+id/inicialFragment"
+        android:name="antonio.femxa.appfinal.ui.screens.inicial.InicialFragment"
+        android:label="fragment_inicial"
+        tools:layout="@layout/fragment_inicial" />
+</navigation>
