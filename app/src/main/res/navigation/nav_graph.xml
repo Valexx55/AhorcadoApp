@@ -9,7 +9,13 @@
         android:id="@+id/victoriaFragment"
         android:name="antonio.femxa.appfinal.ui.screens.victoria.VictoriaFragment"
         android:label="fragment_victoria"
-        tools:layout="@layout/fragment_victoria" />
+        tools:layout="@layout/fragment_victoria">
+
+        <argument
+            android:name="palabra"
+            app:argType="string" />
+
+    </fragment>
 
     <fragment
         android:id="@+id/categoriaFragment"

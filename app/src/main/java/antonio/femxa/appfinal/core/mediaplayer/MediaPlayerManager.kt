@@ -43,6 +43,7 @@ class MediaPlayerManager @Inject constructor(
     fun playSoundAsync(@RawRes soundResId: Int) {
         val player = MediaPlayer.create(context, soundResId).apply {
             setVolume(100f, 100f)
+            isLooping = false
             setOnCompletionListener {
                 this@MediaPlayerManager.release(it)
                 soundMap.remove(soundResId)
