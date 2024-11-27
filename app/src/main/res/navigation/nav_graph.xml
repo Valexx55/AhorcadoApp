@@ -69,11 +69,7 @@
 
         <argument
             android:name="categoria"
-            app:argType="string" />
-
-        <argument
-            android:name="palabra"
-            app:argType="string" />
+            app:argType="integer" />
 
     </fragment>
 
@@ -83,11 +79,7 @@
 
         <argument
             android:name="categoria"
-            app:argType="string" />
-
-        <argument
-            android:name="palabra"
-            app:argType="string" />
+            app:argType="integer" />
 
     </action>
 

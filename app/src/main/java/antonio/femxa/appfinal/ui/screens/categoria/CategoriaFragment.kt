@@ -57,15 +57,8 @@ class CategoriaFragment : Fragment(), AdapterView.OnItemSelectedListener {
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, pos: Int, id: Long) {
         if (pos == 0) return
 
-        val arrayCategorias = resources.obtainTypedArray(R.array.array_categorias)
-        val categoria = binding.spinnerCategorias.selectedItem.toString()
-        val palabra = arrayCategorias.getTextArray(pos).random().toString()
-
-        arrayCategorias.recycle()
-
         val action = CategoriaFragmentDirections.toTableroFragment(
-            categoria = categoria,
-            palabra = palabra
+            categoria = pos
         )
 
         binding.spinnerCategorias.setSelection(0)
