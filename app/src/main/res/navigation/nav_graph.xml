@@ -17,11 +17,21 @@
 
     </fragment>
 
+    <action
+        android:id="@+id/toVictoriaFragment"
+        app:destination="@id/victoriaFragment">
+
+        <argument
+            android:name="palabra"
+            app:argType="string" />
+
+    </action>
+
     <fragment
         android:id="@+id/categoriaFragment"
         android:name="antonio.femxa.appfinal.ui.screens.categoria.CategoriaFragment"
         android:label="fragment_categoria"
-        tools:layout="@layout/fragment_categoria" />
+        tools:layout="@layout/fragment_categoria"/>
 
     <fragment
         android:id="@+id/creditosFragment"
@@ -41,15 +51,50 @@
 
     </fragment>
 
+    <action
+        android:id="@+id/toDerrotaFragment"
+        app:destination="@id/derrotaFragment">
+
+        <argument
+            android:name="palabra"
+            app:argType="string" />
+
+    </action>
+
     <fragment
         android:id="@+id/tableroFragment"
         android:name="antonio.femxa.appfinal.ui.screens.tablero.TableroFragment"
         android:label="fragment_tablero"
-        tools:layout="@layout/fragment_tablero" />
+        tools:layout="@layout/fragment_tablero">
+
+        <argument
+            android:name="categoria"
+            app:argType="string" />
+
+        <argument
+            android:name="palabra"
+            app:argType="string" />
+
+    </fragment>
+
+    <action
+        android:id="@+id/toTableroFragment"
+        app:destination="@id/tableroFragment">
+
+        <argument
+            android:name="categoria"
+            app:argType="string" />
+
+        <argument
+            android:name="palabra"
+            app:argType="string" />
+
+    </action>
 
     <fragment
         android:id="@+id/inicialFragment"
         android:name="antonio.femxa.appfinal.ui.screens.inicial.InicialFragment"
         android:label="fragment_inicial"
         tools:layout="@layout/fragment_inicial" />
+
 </navigation>

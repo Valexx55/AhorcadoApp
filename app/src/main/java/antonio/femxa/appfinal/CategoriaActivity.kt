@@ -82,7 +82,7 @@ class CategoriaActivity : AppCompatActivity(), AdapterView.OnItemSelectedListene
     }
 
     /**
-     * Cargamos el spinner con el array que esta en categorias.xml
+     * Cargamos el spinner con el array que esta en categorias2.xml
      */
     fun loadSpinnerCategorias() {
         val adapter =
