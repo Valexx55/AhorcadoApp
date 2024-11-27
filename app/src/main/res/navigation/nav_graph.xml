@@ -10,26 +10,37 @@
         android:name="antonio.femxa.appfinal.ui.screens.victoria.VictoriaFragment"
         android:label="fragment_victoria"
         tools:layout="@layout/fragment_victoria" />
+
     <fragment
         android:id="@+id/categoriaFragment"
         android:name="antonio.femxa.appfinal.ui.screens.categoria.CategoriaFragment"
         android:label="fragment_categoria"
         tools:layout="@layout/fragment_categoria" />
+
     <fragment
         android:id="@+id/creditosFragment"
         android:name="antonio.femxa.appfinal.ui.screens.creditos.CreditosFragment"
         android:label="fragment_creditos"
         tools:layout="@layout/fragment_creditos" />
+
     <fragment
         android:id="@+id/derrotaFragment"
         android:name="antonio.femxa.appfinal.ui.screens.derrota.DerrotaFragment"
         android:label="fragment_derrota"
-        tools:layout="@layout/fragment_derrota" />
+        tools:layout="@layout/fragment_derrota">
+
+        <argument
+            android:name="palabra"
+            app:argType="string" />
+
+    </fragment>
+
     <fragment
         android:id="@+id/tableroFragment"
         android:name="antonio.femxa.appfinal.ui.screens.tablero.TableroFragment"
         android:label="fragment_tablero"
         tools:layout="@layout/fragment_tablero" />
+
     <fragment
         android:id="@+id/inicialFragment"
         android:name="antonio.femxa.appfinal.ui.screens.inicial.InicialFragment"
