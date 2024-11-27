@@ -10,8 +10,16 @@ class PlaySoundUseCase @Inject constructor(
     private val mediaPlayerManager: MediaPlayerManager
 ) {
 
-    fun invoke(@RawRes resId: Int) {
-        mediaPlayerManager.playSound(resId)
+    fun playSong(@RawRes resId: Int) {
+        mediaPlayerManager.playSong(resId)
+    }
+
+    fun playSongOrContinue(@RawRes resId: Int) {
+        mediaPlayerManager.playSongOrContinue(resId)
+    }
+
+    fun playSoundAsync(@RawRes resId: Int) {
+        mediaPlayerManager.playSoundAsync(resId)
     }
 
 }

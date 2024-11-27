@@ -10,7 +10,7 @@ class StopSoundUseCase @Inject constructor(
 ) {
 
     fun invoke() {
-        mediaPlayerManager.stopSound()
+        mediaPlayerManager.stopAll()
     }
 
 }

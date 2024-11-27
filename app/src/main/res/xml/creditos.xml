@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<creditos>
+    <persona
+        name="Isabel Martin Alonso"
+        contact="isabelmartinalonso2@gmail.com"
+        from="Avila, Spain"
+        github="github.com/isamaralo" />
+
+    <persona
+        name="Antonio Lopez Belinchon"
+        contact="antonio365@gmail.com"
+        from="Madrid, Spain"
+        github="github.com/antoniolb92" />
+
+    <persona
+        name="Susana Sanchez Montero"
+        contact="susanasanchez@auxiliamadrid.org"
+        from="Madrid, Spain"
+        github="github.com/Susanasanch" />
+
+    <persona
+        name="Nira Maria Bethencourt Hernandez"
+        contact="nirabethencourt@gmail.com"
+        from="Tenerife, Spain"
+        github="github.com/niraBH" />
+
+    <persona
+        name="Carlota Elena Sanchez Sansegundo"
+        contact="carlotasanchezsansegundo@gmail.com"
+        from="Madrid, Spain"
+        github="github.com/css94" />
+
+    <persona
+        name="Cristian Hernandez Del Caso"
+        contact="cristianhernandezdelcaso@hotmail.com"
+        from="Avila, Spain"
+        github="github.com/Cristian8" />
+
+    <persona
+        name="Dante Jeanpier Olivares Oruna"
+        contact="dante_cancer27@hotmail.com"
+        from="Lima, Peru"
+        github="github.com/dante321" />
+
+    <persona
+        name="Manuel Santiago Risquez"
+        contact="manudj_2006@hotmail.com"
+        from="Madrid, Spain"
+        github="github.com/manu160427" />
+
+    <persona
+        name="Javier Moreno"
+        contact="morenopereda12@gmail.com"
+        from="Albacete, Spain"
+        github="github.com/jmoremore" />
+
+    <persona
+        name="Iulian Constantin Anghel"
+        contact="iulian.anghel19@gmail.com"
+        from="Madrid, Spain"
+        github="github.com/iulianang" />
+
+    <persona
+        name="Zaineb Mazouz"
+        contact="z.m.malak@hotmail.com"
+        from="Rabat, Morocco"
+        github="github.com/zaineb88" />
+
+    <persona
+        name="Cristina Calvo Sanz"
+        contact="c.calvosanz@gmail.com"
+        from="Madrid, Spain"
+        github="github.com/crikycs" />
+
+    <persona
+        name="Alvaro Esteve Atance"
+        contact="alvarodava@gmail.com"
+        from="Madrid, Spain"
+        github="github.com/SteveR98" />
+
+    <persona
+        name="Diego Bladimir Duque Castillo"
+        contact="diego.duque90@gmail.com"
+        from="Madrid, Spain"
+        github="github.com/dbcd" />
+
+    <persona
+        name="Daniel Garcea-Nieto Sanchez-Guijaldo"
+        contact="daniel_garciasanchez@hotmail.com"
+        from="Madrid, Spain"
+        github="github.com/danielparla" />
+
+    <persona
+        name="Rodrigo Muñoz Sanchez"
+        contact="rodrickms@gmail.com"
+        from="Madrid, Spain"
+        github="github.com/rodrick88" />
+
+    <persona
+        name="Aitor Garcia Ruiz"
+        contact="aitor.garcia.ruiz@hotmail.com"
+        from="Madrid, Spain"
+        github="github.com/AitorPCGR" />
+
+    <persona
+        name="Alvaro Garcia Fernandez"
+        contact="alvgarfer@gmail.com"
+        from="Madrid, Spain"
+        github="github.com/alvgarfer" />
+
+    <persona
+        name="Pablo Otero Castro"
+        contact="pablooterocastro15@gmail.com"
+        from="Pontevedra, Spain"
+        github="github.com/cocot3ro" />
+
+</creditos>

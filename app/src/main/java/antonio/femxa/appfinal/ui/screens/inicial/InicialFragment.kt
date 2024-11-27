@@ -52,6 +52,6 @@ class InicialFragment : Fragment() {
     override fun onStart() {
         super.onStart()
 
-        viewModel.playSound(R.raw.inicio1)
+        viewModel.playSongOrContinue(R.raw.inicio1)
     }
 }

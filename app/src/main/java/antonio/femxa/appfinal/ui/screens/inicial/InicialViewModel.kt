@@ -11,8 +11,8 @@ class InicialViewModel @Inject constructor(
     private val playSoundUseCase: PlaySoundUseCase
 ) : ViewModel() {
 
-    fun playSound(@RawRes soundRes: Int) {
-        playSoundUseCase.invoke(soundRes)
+    fun playSongOrContinue(@RawRes soundRes: Int) {
+        playSoundUseCase.playSongOrContinue(soundRes)
     }
 
 }
