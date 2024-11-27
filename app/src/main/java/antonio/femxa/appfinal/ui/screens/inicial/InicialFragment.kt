@@ -34,7 +34,7 @@ class InicialFragment : Fragment() {
         binding = FragmentInicialBinding.inflate(inflater, container, false)
 
         binding.btnJugar.setOnClickListener {
-            navController.navigate(R.id.tableroFragment)
+            navController.navigate(R.id.categoriaFragment)
         }
 
         // TODO: Implement sound
