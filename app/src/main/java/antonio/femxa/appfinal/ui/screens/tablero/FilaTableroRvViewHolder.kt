@@ -15,7 +15,7 @@ class FilaTableroRvViewHolder(
     private var adapter: ItemTableroRvAdapter? = null
 
     fun render(chars: List<Char?>) {
-        adapter = adapter ?: ItemTableroRvAdapter(chars)
+        adapter = adapter ?: ItemTableroRvAdapter(emptyList())
 
         binding.rvFilaTablero.apply {
             adapter = this@FilaTableroRvViewHolder.adapter
@@ -26,6 +26,8 @@ class FilaTableroRvViewHolder(
                 flexWrap = FlexWrap.WRAP
             }
         }
+
+        adapter!!.updateList(chars)
     }
 
 }

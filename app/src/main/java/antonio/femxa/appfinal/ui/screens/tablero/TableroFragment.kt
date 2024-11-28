@@ -81,7 +81,7 @@ class TableroFragment : Fragment() {
                 viewModel.tryLetter(letra)
             }
             layoutManager = FlexboxLayoutManager(context).apply {
-                justifyContent = JustifyContent.SPACE_EVENLY
+                justifyContent = JustifyContent.FLEX_START
                 alignItems = AlignItems.CENTER
                 flexDirection = FlexDirection.ROW
                 flexWrap = FlexWrap.WRAP
