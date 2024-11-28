@@ -3,21 +3,61 @@ package antonio.femxa.appfinal
 //import android.R
 import android.content.Intent
 import android.media.MediaPlayer
-import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.LoadAdError
+import com.google.android.gms.ads.MobileAds
+import com.google.android.gms.ads.initialization.InitializationStatus
+import com.google.android.gms.ads.interstitial.InterstitialAd
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
 
 
 class InicialActivity : AppCompatActivity() {
      var mediaPlayer: MediaPlayer? = null
      var musicaOnOff: Boolean = false
 
+    private var mInterstitialAd: InterstitialAd? = null
+    private final val TAG = "MainActivity"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_inicial)
+
+
+        Thread {
+            // Initialize the Google Mobile Ads SDK on a background thread.
+            MobileAds.initialize(
+                this
+            ) { initializationStatus: InitializationStatus? ->
+                Log.d("MIAPP", "inicialización de anuncios completada $initializationStatus")
+
+                val adRequest = AdRequest.Builder().build()
+
+                InterstitialAd.load(this,"ca-app-pub-3940256099942544/1033173712", adRequest, object : InterstitialAdLoadCallback() {
+                    override fun onAdFailedToLoad(adError: LoadAdError) {
+                        Log.d(TAG, adError.toString())
+                        mInterstitialAd = null
+                    }
+
+                    override fun onAdLoaded(interstitialAd: InterstitialAd) {
+                        Log.d(TAG, "Anuncio Cargado")
+                        mInterstitialAd = interstitialAd
+                    }
+                })
+
+
+
+            }
+        }
+            .start()
+
+
+
 
         mediaPlayer = MediaPlayer.create(this, R.raw.inicio1)
         mediaPlayer!!.isLooping = true

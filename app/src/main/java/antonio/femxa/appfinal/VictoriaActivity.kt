@@ -32,6 +32,7 @@ class VictoriaActivity : AppCompatActivity() {
             imageView.setBackgroundResource(R.drawable.progress_animation_gameover2)
             val progressAnimation = imageView.background as AnimationDrawable
             progressAnimation.start()
+            //progressAnimation.
         } else {
             imageView.setBackgroundResource(R.drawable.pantallavictoria)
         }
