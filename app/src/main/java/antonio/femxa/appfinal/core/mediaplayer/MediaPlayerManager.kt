@@ -2,7 +2,6 @@ package antonio.femxa.appfinal.core.mediaplayer
 
 import android.content.Context
 import android.media.MediaPlayer
-import android.util.Log
 import androidx.annotation.RawRes
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
@@ -32,10 +31,7 @@ class MediaPlayerManager @Inject constructor(
     }
 
     fun playSongOrContinue(@RawRes soundResId: Int) {
-        if (soundResId == lastMusicResId) {
-            Log.v("MediaPlayerManager", "Already playing this song")
-            return
-        }
+        if (soundResId == lastMusicResId) return
 
         playSong(soundResId)
     }
@@ -56,10 +52,14 @@ class MediaPlayerManager @Inject constructor(
 
     fun stopAll() {
         release(mediaPlayer)
+        mediaPlayer = null
+
         for ((@RawRes k, v) in soundMap) {
             release(v)
             soundMap.remove(k)
         }
+
+        lastMusicResId = null
     }
 
     private fun release(mediaPlayer: MediaPlayer?) {

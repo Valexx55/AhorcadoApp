@@ -5,7 +5,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -35,7 +34,7 @@ class TableroFragment : Fragment() {
 
     private lateinit var navController: NavController
 
-    private lateinit var adapter: ItemTableroRvAdapter
+    private lateinit var adapter: FilaTableroRvAdapter
 
     private val imgsAhorcado = intArrayOf(
         R.drawable.ic_cuerda,
@@ -49,7 +48,7 @@ class TableroFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         navController = findNavController()
-        adapter = ItemTableroRvAdapter(listOf())
+        adapter = FilaTableroRvAdapter(listOf())
     }
 
     override fun onCreateView(
@@ -61,9 +60,8 @@ class TableroFragment : Fragment() {
 
         binding.tvCategoria.text = resources.getStringArray(R.array.categorias)[args.categoria]
 
-        // TODO: Implementar funcionalidad
         binding.btnSonido.setOnClickListener {
-            Toast.makeText(requireContext(), "Not implemented", Toast.LENGTH_SHORT).show()
+            viewModel.toggleSound()
         }
 
         binding.rvTablero.apply {
@@ -114,6 +112,19 @@ class TableroFragment : Fragment() {
             }
         }
 
+        viewLifecycleOwner.lifecycleScope.launch(Dispatchers.IO) {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.musicaOnOff().collect { isOn ->
+                    if (isOn) {
+                        viewModel.playSongOrContinue(R.raw.durantejugar)
+                        binding.btnSonido.setImageResource(R.drawable.ic_volume_up)
+                    } else {
+                        binding.btnSonido.setImageResource(R.drawable.ic_volume_off)
+                    }
+                }
+            }
+        }
+
         return binding.root
     }
 
@@ -135,11 +146,6 @@ class TableroFragment : Fragment() {
                 navController.navigate(action)
             }
         )
-    }
-
-    override fun onStart() {
-        super.onStart()
-        viewModel.playSongOrContinue(R.raw.durantejugar)
     }
 
 }

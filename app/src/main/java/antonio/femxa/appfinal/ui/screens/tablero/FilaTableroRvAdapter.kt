@@ -4,15 +4,14 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import antonio.femxa.appfinal.databinding.ItemTableroBinding
+import antonio.femxa.appfinal.databinding.FilaTableroBinding
 
-class ItemTableroRvAdapter(
-    private var list: List<Char?>
-) : RecyclerView.Adapter<ItemTableroRvViewHolder>() {
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemTableroRvViewHolder {
-        return ItemTableroRvViewHolder(
-            ItemTableroBinding.inflate(
+class FilaTableroRvAdapter(
+    private var list: List<List<Char?>>
+) : RecyclerView.Adapter<FilaTableroRvViewHolder>() {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FilaTableroRvViewHolder {
+        return FilaTableroRvViewHolder(
+            FilaTableroBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
                 false
@@ -22,12 +21,12 @@ class ItemTableroRvAdapter(
 
     override fun getItemCount(): Int = list.size
 
-    override fun onBindViewHolder(holder: ItemTableroRvViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: FilaTableroRvViewHolder, position: Int) {
         holder.render(list[position])
     }
 
-    fun updateList(newList: List<Char?>) {
-        val diffUtil = ItemTableroDiffUtil(this.list, newList)
+    fun updateList(newList: List<List<Char?>>) {
+        val diffUtil = FilaTableroDiffUtil(this.list, newList)
         val result = DiffUtil.calculateDiff(diffUtil, false)
         result.dispatchUpdatesTo(this)
         this.list = newList

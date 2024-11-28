@@ -6,11 +6,16 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import antonio.femxa.appfinal.R
 import antonio.femxa.appfinal.databinding.FragmentCreditosBinding
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class CreditosFragment : Fragment() {
@@ -35,16 +40,21 @@ class CreditosFragment : Fragment() {
             adapter = this@CreditosFragment.adapter
         }
 
+        viewLifecycleOwner.lifecycleScope.launch(Dispatchers.Main) {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.musicaOnOff().collect { isOn ->
+                    if (!isOn) return@collect
+
+                    viewModel.playSongOrContinue(R.raw.inicio1)
+                }
+            }
+        }
+
         binding.btnHonduras.setOnLongClickListener {
             viewModel.playSoundAsync(R.raw.soni)
             true
         }
 
         return binding.root
-    }
-
-    override fun onStart() {
-        super.onStart()
-        viewModel.playSongOrContinue(R.raw.inicio1)
     }
 }

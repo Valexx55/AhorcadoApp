@@ -8,11 +8,16 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import antonio.femxa.appfinal.R
 import antonio.femxa.appfinal.databinding.FragmentCategoriaBinding
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class CategoriaFragment : Fragment(), AdapterView.OnItemSelectedListener {
@@ -46,12 +51,25 @@ class CategoriaFragment : Fragment(), AdapterView.OnItemSelectedListener {
         binding.spinnerCategorias.setSelection(0)
         binding.spinnerCategorias.onItemSelectedListener = this
 
-        return binding.root
-    }
+        binding.btnSonido.setOnClickListener {
+            viewModel.toggleSonido()
+        }
 
-    override fun onStart() {
-        super.onStart()
-        viewModel.playSongOrContinue(R.raw.inicio)
+        viewLifecycleOwner.lifecycleScope.launch(Dispatchers.Main) {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.musicaOnOff().collect { isOn ->
+
+                    if (isOn) {
+                        viewModel.playSongOrContinue(R.raw.inicio)
+                        binding.btnSonido.setImageResource(R.drawable.ic_volume_up)
+                    } else {
+                        binding.btnSonido.setImageResource(R.drawable.ic_volume_off)
+                    }
+                }
+            }
+        }
+
+        return binding.root
     }
 
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, pos: Int, id: Long) {

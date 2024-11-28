@@ -7,11 +7,16 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import antonio.femxa.appfinal.R
 import antonio.femxa.appfinal.databinding.FragmentInicialBinding
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class InicialFragment : Fragment() {
@@ -37,21 +42,28 @@ class InicialFragment : Fragment() {
             navController.navigate(R.id.categoriaFragment)
         }
 
-        // TODO: Implement sound
         binding.btnSonido.setOnClickListener {
-            Toast.makeText(context, "Not implemented", Toast.LENGTH_LONG).show()
+            viewModel.toggleSonido()
         }
 
         binding.btnCreditos.setOnClickListener {
             navController.navigate(R.id.creditosFragment)
         }
 
+        viewLifecycleOwner.lifecycleScope.launch(Dispatchers.Main) {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.musicaOnOff().collect { isOn ->
+                    if (isOn) {
+                        binding.btnSonido.text = getString(R.string.sonido_on)
+                        viewModel.playSongOrContinue(R.raw.inicio1)
+                    } else {
+                        binding.btnSonido.text = getString(R.string.sonido_off)
+                    }
+                }
+            }
+        }
+
         return binding.root
     }
 
-    override fun onStart() {
-        super.onStart()
-
-        viewModel.playSongOrContinue(R.raw.inicio1)
-    }
 }

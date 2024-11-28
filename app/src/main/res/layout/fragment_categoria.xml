@@ -21,10 +21,10 @@
         android:elevation="1dp" />
 
     <ImageButton
-        android:id="@+id/btnImagen"
+        android:id="@+id/btnSonido"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
-        app:srcCompat="@drawable/ic_volume_off" />
+        app:srcCompat="@drawable/ic_volume_up" />
 
 </FrameLayout>

@@ -3,16 +3,24 @@ package antonio.femxa.appfinal.ui.screens.tablero
 import android.content.Context
 import androidx.annotation.RawRes
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import antonio.femxa.appfinal.R
+import antonio.femxa.appfinal.core.datastore.DataStoreManager
 import antonio.femxa.appfinal.domain.usecases.PlaySoundUseCase
+import antonio.femxa.appfinal.domain.usecases.SonidoOnOffUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class TableroViewModel @Inject constructor(
-    private val playSoundUseCase: PlaySoundUseCase
+    private val playSoundUseCase: PlaySoundUseCase,
+    private val sonidoOnOffUseCase: SonidoOnOffUseCase,
+    private val dataStoreManager: DataStoreManager
 ) : ViewModel() {
 
     private lateinit var onWin: (String) -> Unit
@@ -37,11 +45,11 @@ class TableroViewModel @Inject constructor(
         this.onWin = onWin
         this.onLose = onLose
 
-        palabraOculta = chooseRandomWord(context, categoria).uppercase()
+        palabraOculta = escogerPalabraDeCategoria(context, categoria).uppercase()
         _palabraFlow.value = TableroUiState.Correct(encriptarPalabra())
     }
 
-    private fun chooseRandomWord(context: Context, categoria: Int): String {
+    private fun escogerPalabraDeCategoria(context: Context, categoria: Int): String {
         val arrayCategorias = context.resources.obtainTypedArray(R.array.array_categorias)
         val palabra = arrayCategorias.getTextArray(categoria).random().toString()
 
@@ -50,12 +58,10 @@ class TableroViewModel @Inject constructor(
         return palabra
     }
 
-    private fun encriptarPalabra(): List<Char?> {
-        return palabraOculta.map { c ->
-            when (c) {
-                ' ' -> null
-                in letrasUsadas -> c
-                else -> ' '
+    private fun encriptarPalabra(): List<List<Char?>> {
+        return palabraOculta.split(" ").map { palabra ->
+            palabra.toCharArray().map {
+                if (!it.isLetter() || letrasUsadas.contains(it)) it else null
             }
         }
     }
@@ -70,25 +76,36 @@ class TableroViewModel @Inject constructor(
         }
 
         if (palabra.contains(letter)) {
-            _palabraFlow.value = TableroUiState.Correct(encriptarPalabra())
+            val palabraEncriptada = encriptarPalabra()
 
-            if (encriptarPalabra().all { it != null }) {
+            if (palabraEncriptada.flatten().all { it != null }) {
                 onWin.invoke(palabraOculta)
             }
-        } else {
-            if (++fallos == maxFallos) {
-                onLose.invoke(palabraOculta)
-            }
 
-            _palabraFlow.value = TableroUiState.Fail(fallos)
-            return false
+            _palabraFlow.value = TableroUiState.Correct(palabraEncriptada)
+            return true
         }
 
-        return true
+        if (++fallos == maxFallos) {
+            onLose.invoke(palabraOculta)
+        }
+
+        _palabraFlow.value = TableroUiState.Fail(fallos)
+        return false
     }
 
     fun playSongOrContinue(@RawRes resId: Int) {
         playSoundUseCase.playSongOrContinue(resId)
+    }
+
+    fun toggleSound() {
+        viewModelScope.launch(Dispatchers.IO) {
+            sonidoOnOffUseCase.invoke()
+        }
+    }
+
+    fun musicaOnOff(): Flow<Boolean> {
+        return dataStoreManager.musicaOnOff()
     }
 
 }

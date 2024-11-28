@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Ahorcado</string>
     <string name="title_activity_tablero">TableroActivity</string>
+    <string name="sonido_on">Sonido ON</string>
+    <string name="sonido_off">Sonido OFF</string>
 
     <string-array name="alfabeto">
         <item>A</item>

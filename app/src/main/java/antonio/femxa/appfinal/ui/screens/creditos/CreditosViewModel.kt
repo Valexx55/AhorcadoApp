@@ -3,15 +3,18 @@ package antonio.femxa.appfinal.ui.screens.creditos
 import android.content.res.XmlResourceParser
 import androidx.annotation.RawRes
 import androidx.lifecycle.ViewModel
+import antonio.femxa.appfinal.core.datastore.DataStoreManager
 import antonio.femxa.appfinal.domain.model.PersonaCreditos
 import antonio.femxa.appfinal.domain.usecases.PlaySoundUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.Flow
 import org.xmlpull.v1.XmlPullParser
 import javax.inject.Inject
 
 @HiltViewModel
 class CreditosViewModel @Inject constructor(
-    private val playSoundUseCase: PlaySoundUseCase
+    private val playSoundUseCase: PlaySoundUseCase,
+    private val dataStoreManager: DataStoreManager
 ) : ViewModel() {
 
     fun playSongOrContinue(@RawRes soundRes: Int) {
@@ -40,6 +43,10 @@ class CreditosViewModel @Inject constructor(
         }
 
         return list
+    }
+
+    fun musicaOnOff(): Flow<Boolean> {
+        return dataStoreManager.musicaOnOff()
     }
 
 }
