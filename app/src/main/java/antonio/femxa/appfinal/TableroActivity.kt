@@ -4,10 +4,12 @@ package antonio.femxa.appfinal
 import android.content.Intent
 import android.graphics.Color
 import android.media.MediaPlayer
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowMetrics
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
@@ -15,6 +17,11 @@ import android.widget.ImageView
 import android.widget.TableRow
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.gms.ads.AdListener
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdSize
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.LoadAdError
 import java.util.Locale
 
 
@@ -36,12 +43,98 @@ class TableroActivity : AppCompatActivity() {
     private var sonidoOnOff: Boolean = false
     private var mediaPlayer: MediaPlayer? = null
 
+    val idUnitBannerPrueba = "ca-app-pub-3940256099942544/9214589741"
+    val idUnitBannerMio = "ca-app-pub-9910445535228761/9528197815"
+    lateinit var  adView: AdView
+
+    //devuelve el tamño del anuncio
+
+    // Get the ad size with screen width.
+    private val adSize: AdSize
+        get() {
+            val displayMetrics = resources.displayMetrics
+            val adWidthPixels =
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                    val windowMetrics: WindowMetrics = this.windowManager.currentWindowMetrics
+                    windowMetrics.bounds.width()
+                } else {
+                    displayMetrics.widthPixels
+                }
+            val density = displayMetrics.density
+            val adWidth = (adWidthPixels / density).toInt()
+            return AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(this, adWidth)
+        }
+
+
+    fun crearAnuncio ()
+
+    {
+
+
+        //obtengo un anuncio
+        val adView = AdView(this)
+        adView.adUnitId = idUnitBannerMio//idUnitBannerPrueba
+        adView.setAdSize(adSize)
+        this.adView = adView
+
+        /**
+         * // Replace ad container with new ad view.
+         * binding.adViewContainer.removeAllViews()
+         * binding.adViewContainer.addView(adView)
+         */
+        //lo meto en su caja
+        val adviewxml = findViewById<AdView> (R.id.anuncio)
+        adviewxml.removeAllViews()
+        adviewxml.addView(this.adView)
+
+        val adRequest = AdRequest.Builder().build()
+        adView.loadAd(adRequest)
+
+        adView.adListener = object: AdListener() {
+            override fun onAdClicked() {
+                // Code to be executed when the user clicks on an ad.
+                Log.d("MIAPP","onAdClicked()" )
+            }
+
+            override fun onAdClosed() {
+                // Code to be executed when the user is about to return
+                // to the app after tapping on an ad.
+                Log.d("MIAPP","onAdClosed()" )
+            }
+
+            override fun onAdFailedToLoad(adError : LoadAdError) {
+                // Code to be executed when an ad request fails.
+                Log.d("MIAPP","onAdFailedToLoad()" )
+            }
+
+            override fun onAdImpression() {
+                // Code to be executed when an impression is recorded
+                // for an ad.
+                Log.d("MIAPP","onAdImpression()" )
+            }
+
+            override fun onAdLoaded() {
+                // Code to be executed when an ad finishes loading.
+                Log.d("MIAPP","onAdLoaded()" )
+            }
+
+            override fun onAdOpened() {
+                // Code to be executed when an ad opens an overlay that
+                // covers the screen.
+                Log.d("MIAPP","onAdOpened()" )
+            }
+        }
+
+
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tablero)
         val v = findViewById<View>(R.id.btnImagen)
         val ib = v as ImageButton
+
+        crearAnuncio ()
 
         contador = 0
         contador_aciertos = 0

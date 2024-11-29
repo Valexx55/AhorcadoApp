@@ -62,4 +62,16 @@
         </activity>
     </application>
 
+    <!--TODO
+    1 fallos a corregir
+        a) comportomiento de sonido consistente
+        b) la M del tablero no se ve bien (revisar estilos / tamaños)
+
+    2 test con más dispositivos de distintos tamaños
+        a) revisar el tablero y disposición / visibilidad de elementos
+
+    3 página de créditos
+        a) actualizarla / revisara (logo de FEMXA)
+    -->
+
 </manifest>
